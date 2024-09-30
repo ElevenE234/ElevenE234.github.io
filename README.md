@@ -15,3 +15,20 @@ Websites I Recommend
 Brain Pickings - This website offers a treasure trove of insights on literature, philosophy, and art, making it a great resource for anyone who loves to ponder the big questions of life.
 
 Coursera - I appreciate Coursera for its vast array of online courses across different subjects. It's an excellent way to dive into new topics and expand my knowledge from the comfort of my home.
+
+# Guessing Game Flowchart
+
+```mermaid
+flowchart TD
+    Start([Start]) --> GenerateRandomNumber[("Generate random number between 1 and 100")]
+    GenerateRandomNumber --> UserInput[("Prompt user for a guess")]
+    UserInput --> ValidateInput{Is input valid?}
+    ValidateInput -->|Yes| CheckGuess[("Check if guess is too high, too low, or correct")]
+    ValidateInput -->|No| InvalidInput[("Display error message and prompt again")]
+    InvalidInput --> UserInput
+    CheckGuess -->|Too High| FeedbackHigh[("Display 'Too high!' message")]
+    CheckGuess -->|Too Low| FeedbackLow[("Display 'Too low!' message")]
+    CheckGuess -->|Correct| Win[("Display 'Correct! You win!' message")]
+    FeedbackHigh --> UserInput
+    FeedbackLow --> UserInput
+    Win --> End([End])
